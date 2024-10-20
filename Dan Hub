@@ -3452,11 +3452,32 @@ Farmfasttoggle = M:AddToggle({
     Save = true,
     Callback = function(Value)
         _G.Farmfast = Value
-        if not _G.Farmfast then  -- Verificar se o toggle foi desativado
+        if _G.Farmfast then  -- Se o toggle for ativado
+            StartFarmFast()  -- Inicia a ação de farming
+        else
             StopTween()  -- Parar a ação de farming
         end
     end    
 })
+
+-- Função para iniciar o loop de farming
+function StartFarmFast()
+    -- Certifique-se de que o loop só seja iniciado uma vez
+    spawn(function()
+        while _G.Farmfast do  -- Enquanto o toggle estiver ativo
+            pcall(function()
+                -- Coloque aqui o código de farming
+            end)
+            wait(0.1)  -- Pequeno delay para evitar sobrecarga
+        end
+    end)
+end
+
+-- Função para parar o farming
+function StopTween()
+    -- Parar o farming de forma segura
+    -- Você pode adicionar códigos para interromper movimentos, etc.
+end
 
 local Section = M:AddSection({
     Name = "Kaitun Met Vaiz"
