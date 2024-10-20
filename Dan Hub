@@ -3452,7 +3452,9 @@ Farmfasttoggle = M:AddToggle({
     Save = true,
     Callback = function(Value)
         _G.Farmfast = Value
-        StopTween(_G.Farmfast)
+        if not _G.Farmfast then  -- Verificar se o toggle foi desativado
+            StopTween()  -- Parar a ação de farming
+        end
     end    
 })
 
