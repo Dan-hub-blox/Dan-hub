@@ -7404,34 +7404,7 @@ spawn(function()
                         if v.Humanoid:FindFirstChild("Animator") then
                             v.Humanoid.Animator:Destroy()
                         end
-                        sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius", math.huge)
-
-if _G.Farmfast and StardMag then
-    for i, v in pairs(workspace.Enemies:GetChildren()) do
-        -- Verificar se o inimigo é "Shanda" e está dentro do alcance
-        if (v.Name == "Shanda") and (v.HumanoidRootPart.Position - FastMon.Position).Magnitude <= 250 
-           and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") 
-           and v.Humanoid.Health > 0 then
-            
-            -- Ajustar propriedades do HumanoidRootPart e garantir que o inimigo seja imobilizado
-            v.HumanoidRootPart.Size = Vector3.new(50, 50, 50)
-            v.HumanoidRootPart.CFrame = FastMon
-            v.Humanoid:ChangeState(14) -- Forçar o estado do inimigo para "parado"
-            v.HumanoidRootPart.CanCollide = false
-            v.Head.CanCollide = false
-
-            -- Remover o Animator para evitar animações que possam interferir no farm
-            if v.Humanoid:FindFirstChild("Animator") then
-                v.Humanoid.Animator:Destroy()
-            end
-        end
-    end
-end
-
--- Desativar o farm rápido se o jogador ultrapassar o nível 120
-if game.Players.LocalPlayer.Data.Level.Value > 120 then
-    _G.Farmfast = false
-end
+   
                         sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
                     end
                     if _G.AutoVampire and YouSkidder then
@@ -7444,7 +7417,19 @@ end
                         if v.Humanoid:FindFirstChild("Animator") then
                             v.Humanoid.Animator:Destroy()
                         end
-                        sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                      sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                    end
+                    if _G.Farmfast and StardMag then
+                        if (v.Name == "Shanda") and (v.HumanoidRootPart.Position - FastMon.Position).Magnitude <= 250 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                            v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                        v.HumanoidRootPart.CFrame = FastMon
+                        v.Humanoid:ChangeState(14)
+                        v.HumanoidRootPart.CanCollide = false
+                        v.Head.CanCollide = false
+                        if v.Humanoid:FindFirstChild("Animator") then
+                            v.Humanoid.Animator:Destroy()
+                        end
+                       sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
                     end
                     if _G.AutoEctoplasm and StartEctoplasmMagnet then
                         if string.find(v.Name, "Ship") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - EctoplasmMon.Position).Magnitude <= _G.BringMode then
