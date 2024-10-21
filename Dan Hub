@@ -3473,7 +3473,7 @@ M:AddToggle({
        _G.SelectWeapon = "Combat"
        _G.AutoPlayerHunter = Value
        _G.Auto_Stats_Kaitun = Value
-       _G.Auto_Saber = false
+       _G.Auto_Saber = Value
        _G.AutoSuperhuman = Value
        _G.AutoBartilo = Value
        _G.AutoBuyLegendarySword = Value
