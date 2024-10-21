@@ -9050,7 +9050,7 @@ end)
 spawn(function()
     while task.wait() do
         pcall(function()
-             if _G.Auto_Saber and game.Players.LocalPlayer.Data.Level.Value >= 200 and not Check_Sword("Saber") and World1 then
+             if _G.Auto_Saber and game.Players.LocalPlayer.Data.Level.Value >= 280 and not Check_Sword("Saber") and World1 then
                 ToggleFarm:Set(false)
                 _G.Auto_Saber = true
             end
@@ -9060,7 +9060,7 @@ end)
 
 spawn(function()
     while task.wait() do
-        if _G.Auto_Saber and game.Players.LocalPlayer.Data.Level.Value >= 200 and not Check_Sword("Saber") and World1 then
+        if _G.Auto_Saber and game.Players.LocalPlayer.Data.Level.Value >= 280 and not Check_Sword("Saber") and World1 then
             pcall(function()
                 ToggleFarm:Set(false)
                 if game:GetService("Workspace").Map.Jungle.Final.Part.Transparency == 0 then
