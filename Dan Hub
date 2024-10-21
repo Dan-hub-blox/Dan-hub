@@ -9051,6 +9051,7 @@ spawn(function()
     while task.wait() do
         pcall(function()
             if _G.Auto_Saber and game.Players.LocalPlayer.Data.Level.Value >= 200 and game.Players.LocalPlayer.Data.Level.Value <= 400 and not Check_Sword("Saber") and World1 then
+               ToggleFarm:Set(false)
                 _G.Auto_Saber = true
             end
         end)
